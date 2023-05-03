@@ -19,8 +19,8 @@ sigma = np.std(test_result, ddof = 1) # 0.4508017549014448
 
 from scipy import stats
 
-x1 = average + stats.t.ppf(alpha / 2, df = n - 1)
-x2 = average - stats.t.ppf(alpha / 2, df = n - 1)
+x1 = average + stats.t.ppf(alpha / 2, df = n - 1) * (sigma / np.sqrt(n))
+x2 = average - stats.t.ppf(alpha / 2, df = n - 1) * (sigma / np.sqrt(n))
 
 print(f'p({round(x1, 2)} < mu < {round(x2, 2)}) = 95%')
-# p(4.33 < mu < 8.85) = 95%
+# p(6.27 < mu < 6.91) = 95%

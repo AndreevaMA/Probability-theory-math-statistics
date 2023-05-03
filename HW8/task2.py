@@ -18,8 +18,8 @@ sigma = np.std(studentIQ, ddof = 1) # 10.54566788359614
 
 from scipy import stats
 
-x1 = average + stats.t.ppf(alpha / 2, df = n - 1)
-x2 = average - stats.t.ppf(alpha / 2, df = n - 1)
+x1 = average + stats.t.ppf(alpha / 2, df = n - 1) * (sigma / np.sqrt(n))
+x2 = average - stats.t.ppf(alpha / 2, df = n - 1) * (sigma / np.sqrt(n))
 
 print(f'p({round(x1, 2)} < mu < {round(x2, 2)}) = 95%')
-# p(115.84 < mu < 120.36) = 95%
+# p(110.56 < mu < 125.64) = 95%
